@@ -1,0 +1,27 @@
+{
+  "name": "swiggy-app",
+  "version": "1.0.0",
+  "description": "swiggy clone by Mehul Kumawat",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MehulKumawat1999/Swiggy-app.git"
+  },
+  "keywords": [
+    "react",
+    "swiggy",
+    "clone"
+  ],
+  "author": "Mehul Kumawat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MehulKumawat1999/Swiggy-app/issues"
+  },
+  "homepage": "https://github.com/MehulKumawat1999/Swiggy-app#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
