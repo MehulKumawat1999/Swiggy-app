@@ -1,0 +1,21 @@
+/* #grad{
+    background: rgb(255,214,105);
+    background: linear-gradient(180deg, rgba(255,214,105,1) 0%, rgba(255,129,0,1) 100%);
+} */
+.header{
+    display: flex;
+    /* justify-content:space-between; */
+    justify-content: space-around;
+    box-shadow: rgba(204, 204, 204, 0.45) 0px 25px 20px -20px;
+}
+.logo{
+    padding: 5px 0px 10px 0px;
+}
+.nav-option{
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+}
+.nav-option > div {
+    padding: 20px;
+}
