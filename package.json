@@ -4,7 +4,9 @@
   "description": "swiggy clone by Mehul Kumawat",
   "main": "script.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,14 @@
   },
   "homepage": "https://github.com/MehulKumawat1999/Swiggy-app#readme",
   "devDependencies": {
-    "parcel": "^2.9.3"
-  }
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 20 versions"
+  ]
 }
