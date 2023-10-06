@@ -1,0 +1,26 @@
+.shimmer{
+    padding: 0px 50px;
+}
+.shimmer-search {
+    /* padding: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shimmer-search-text{
+    padding: 10px;
+}
+.shimmer-filter-btn{
+    width: 150px;
+    padding: 7px;
+    cursor: pointer;
+    border: none;
+}
+.shimmer-search-input{
+    padding: 5px;
+}
+
+.shimmer-res-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
