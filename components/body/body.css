@@ -1,28 +1,11 @@
 .body{
     padding: 0px 50px;
 }
-.search {
-    /* padding: 10px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.search-text{
+
+/* .search-text{
     padding: 10px;
-}
-.filter-btn{
-    padding: 5px;
-    cursor: pointer;
-}
-.search-input{
-    padding: 5px;
-}
-input{
-    width: 200px;
-}
-input:active{
-    border: none;
-}
+} */
+
 .res-container{
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;

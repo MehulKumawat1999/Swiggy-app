@@ -1,4 +1,4 @@
-
+// import { fetchData } from "../../utils/utils";
 import "./header.css";
 const Header = () => {
     return (
