@@ -1,44 +1,41 @@
 import RestaurantCard from "../restaurantCard/RestaurantCard";
+import { SearchInput } from "../searchInput/SearchInput";
 import Shimmer from "../shimmer/Shimmer";
 import "./body.css";
-// import { data } from "../../utils/mockData.js";
+import {fetchResData} from "../../utils/utils.js"
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 const Body = () => {
     // let resList = data?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     const [resList, setResList] = useState([]);
-    useEffect(()=>{
-      // const data = fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9166595&lng=75.7960106&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-      // const json = data.json();
-      // setResList(json?.data?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      console.log("hello effect");
-      fetchData();
+    const [restaurantList, setRestaurantList] = useState([]);
+    useEffect(() =>{
+      (async ()=> {
+        const data = await fetchResData();
+        setResList(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setRestaurantList(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);      
+      })();
     },[])
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus === false) return (
+      <div>
+        <h1>Looks like you are offline</h1>
+        <h3>Please check your internet connection.</h3>
+      </div>
+    )
 
-    const fetchData = async () => {
-      const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9166595&lng=75.7960106&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-      const json = await data.json();
-      await setResList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      // console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    };
-    
-
-    
+    const getFilteredList = (filteredList) => {
+      setRestaurantList(filteredList)
+    }
 
   return resList.length === 0? <Shimmer/> : (
     <div className="body">
-      <div className="search">
-        <div className="search-text">
-          <button className="filter-btn" onClick={() => {
-                setResList(resList.filter((res) => res.info.avgRating>5));
-          }}>
-            Top Rated Restraunts
-          </button>
-        </div>
-        {/* <div className="search-input"><input /></div> */}
-      </div>
+      <SearchInput resList={resList} filteredList={getFilteredList}/>
       <div className="res-container">
-        {resList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        {restaurantList.map((restaurant) => (
+          <Link className="res-restaurant-card" key={restaurant.info.id}
+          to={"/restaurant/"+restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
         ))}
       </div>
     </div>

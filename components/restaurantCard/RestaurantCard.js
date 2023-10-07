@@ -1,5 +1,5 @@
 import "./restaurantCard.css";
-import { CDN_URL } from "../../utils/utils";
+import { CDN_URL } from "../../config";
 const RestaurantCard = (props) => {
     const {resData} = props;
     const {cloudinaryImageId, cuisines, areaName , avgRating, name} = resData?.info;
