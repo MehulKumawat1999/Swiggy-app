@@ -10,3 +10,6 @@
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 }
+.res-restaurant-card{
+    text-decoration: none;
+}

@@ -1,6 +1,12 @@
-export async function fetchData () {
-    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9166595&lng=75.7960106&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+import { MENU_API, RES_API } from "../config";
+
+export async function fetchResData () {
+    const data = await fetch(RES_API);
     const json = await data.json();
     return json;
 }
-
+export async function fetchMenuData (resId) {
+    const data = await fetch(MENU_API + resId);
+    const json = await data.json();
+    return json;
+}
